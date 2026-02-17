@@ -91,7 +91,20 @@ gI                     跳转到实现 (Goto Implementation)
 gy                     跳转到类型定义 (Goto Type Definition)
 K                      悬停文档 (Hover)
 gK                     签名帮助 (Signature Help)
+<C-o>                  返回到跳转前的位置 (Jump Back)
+<C-i>                  前进到跳转后的位置 (Jump Forward)
 ```
+
+### 符号搜索（推荐）
+```
+<leader>ss             在当前文件中搜索符号 (Document Symbols)
+<leader>sS             在整个工作区搜索符号 (Workspace Symbols)
+```
+
+**使用场景：**
+- 快速跳转到项目中的任何函数、类、变量
+- 支持模糊搜索，输入部分名称即可
+- 比手动浏览更高效
 
 ### 代码操作
 ```
@@ -164,15 +177,44 @@ gK                     签名帮助 (Signature Help)
 <leader>E              在当前文件位置打开文件浏览器
 ```
 
-### 文件搜索 (Telescope)
+### 文件搜索和跳转 (Telescope)
 ```
-<leader>ff             查找文件 (Find Files)
-<leader>fg             全局搜索内容 (Grep)
+<leader>ff             查找文件 (Find Files) - 模糊搜索文件名
+<leader>fg             全局搜索内容 (Grep) - 在文件内容中搜索
 <leader>fb             查找缓冲区 (Buffers)
 <leader>fr             最近文件 (Recent Files)
 <leader>fh             帮助标签 (Help Tags)
 <leader>/              在当前文件中搜索
 ```
+
+**Telescope 操作技巧：**
+- 输入文件名的一部分进行模糊匹配
+- `<C-j>/<C-k>` 或箭头键上下选择
+- `<CR>` 打开文件
+- `<C-x>` 在水平分割窗口中打开
+- `<C-v>` 在垂直分割窗口中打开
+- `<C-t>` 在新标签页中打开
+
+### 直接打开文件（命令模式）
+```
+:e filename            编辑文件（支持相对路径和绝对路径）
+:e src/main.c          示例：打开 src/main.c
+:e .                   打开当前目录的文件浏览器
+:sp filename           在水平分割窗口中打开文件
+:vs filename           在垂直分割窗口中打开文件
+```
+
+### 跳转到光标下的文件
+```
+gf                     跳转到光标下的文件路径
+<C-w>f                 在新窗口中打开光标下的文件
+<C-w>gf                在新标签页中打开光标下的文件
+```
+
+**使用场景：**
+- 在 `#include "config.h"` 中，光标放在 `config.h` 上按 `gf`
+- 在 import 语句中快速跳转到对应文件
+- 在文档中的文件路径上快速打开文件
 
 ### 缓冲区管理
 ```
@@ -343,6 +385,20 @@ q                      退出
 4. `gd` - 跳转到定义
 5. `gr` - 查看所有引用
 
+### 快速定位函数或变量
+1. `<leader>ss` - 当前文件符号搜索
+2. 输入函数名的一部分（如 "init"）
+3. 选择目标符号并跳转
+4. 或使用 `<leader>sS` 在整个项目中搜索
+
+### 多文件代码浏览
+1. `<leader>ff` - 查找并打开主文件
+2. 光标移到 `#include "header.h"` 上，按 `gf` 跳转到头文件
+3. 光标移到函数调用上，按 `gd` 跳转到定义
+4. `<C-o>` - 返回上一个位置
+5. `<C-i>` - 前进到下一个位置
+6. `gr` - 查看函数的所有引用
+
 ### Git 操作 (lazygit)
 1. `<leader>gg` - 打开 lazygit
 2. 使用 lazygit 进行 git 操作
@@ -369,4 +425,4 @@ q                      退出
 
 ---
 
-**最后更新**: 2026-02-17 (添加了详细的窗口分割命令)
+**最后更新**: 2026-02-17 (添加了符号跳转、文件跳转和详细的窗口分割命令)
