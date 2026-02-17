@@ -1,0 +1,102 @@
+return {
+  {
+    "stevearc/aerial.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- 在右侧显示
+      layout = {
+        default_direction = "prefer_right",
+        placement = "edge",
+      },
+      -- 自动打开（可选，根据需要启用）
+      -- open_automatic = true,
+      -- 支持的后端：treesitter, lsp, markdown, asciidoc, man
+      backends = { "lsp", "treesitter", "markdown", "man" },
+      -- 使用 Nerd Font 图标（0xProto 兼容）
+      nerd_font = true,
+      show_guides = true,
+      -- 使用 Font Awesome 和 DevIcons 的基础图标
+      icons = {
+        Array = "󰅪",
+        Boolean = "◩",
+        Class = "󰠱",
+        Constant = "󰏿",
+        Constructor = "󰆧",
+        Enum = "󰕘",
+        EnumMember = "󰕘",
+        Event = "󰉁",
+        Field = "󰜢",
+        File = "󰈙",
+        Function = "󰊕",
+        Interface = "󰜰",
+        Key = "󰌋",
+        Method = "󰆧",
+        Module = "󰏗",
+        Namespace = "󰌗",
+        Null = "󰟢",
+        Number = "󰎠",
+        Object = "󰅩",
+        Operator = "󰆕",
+        Package = "󰏗",
+        Property = "󰜢",
+        String = "󰀬",
+        Struct = "󰙅",
+        TypeParameter = "󰊄",
+        Variable = "󰀫",
+      },
+      -- 过滤器设置
+      filter_kind = false,
+      -- 高亮当前符号
+      highlight_on_hover = true,
+      highlight_on_jump = 300,
+      -- 自动关闭行为
+      close_automatic_events = {},
+      -- 窗口设置
+      resize_to_content = true,
+      max_width = { 40, 0.2 },
+      min_width = 20,
+      -- 关闭按 q
+      keymaps = {
+        ["?"] = "actions.show_help",
+        ["g?"] = "actions.show_help",
+        ["<CR>"] = "actions.jump",
+        ["<C-v>"] = "actions.jump_vsplit",
+        ["<C-s>"] = "actions.jump_split",
+        ["p"] = "actions.scroll",
+        ["<C-j>"] = "actions.down_and_scroll",
+        ["<C-k>"] = "actions.up_and_scroll",
+        ["{"] = "actions.prev",
+        ["}"] = "actions.next",
+        ["[["] = "actions.prev_up",
+        ["]]"] = "actions.next_up",
+        ["q"] = "actions.close",
+        ["o"] = "actions.tree_toggle",
+        ["za"] = "actions.tree_toggle",
+        ["O"] = "actions.tree_toggle_recursive",
+        ["zA"] = "actions.tree_toggle_recursive",
+        ["l"] = "actions.tree_open",
+        ["zo"] = "actions.tree_open",
+        ["L"] = "actions.tree_open_recursive",
+        ["zO"] = "actions.tree_open_recursive",
+        ["h"] = "actions.tree_close",
+        ["zc"] = "actions.tree_close",
+        ["H"] = "actions.tree_close_recursive",
+        ["zC"] = "actions.tree_close_recursive",
+        ["zr"] = "actions.tree_increase_fold_level",
+        ["zR"] = "actions.tree_open_all",
+        ["zm"] = "actions.tree_decrease_fold_level",
+        ["zM"] = "actions.tree_close_all",
+        ["zx"] = "actions.tree_sync_folds",
+        ["zX"] = "actions.tree_sync_folds",
+      },
+    },
+    keys = {
+      { "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle Aerial (Symbols)" },
+      { "<leader>ca", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+    },
+  },
+}

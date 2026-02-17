@@ -1,0 +1,28 @@
+# Test files
+tt.*
+.tests
+foo.*
+
+# Debug
+debug
+*.log
+
+# Temporary files
+.repro
+
+# Documentation tags
+doc/tags
+
+# Data directory
+data
+
+# Lazy.nvim plugin directory (will be auto-downloaded)
+.lazy/
+
+# Session files
+*.session
+
+# Swap files
+*.swp
+*.swo
+*~
