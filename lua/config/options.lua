@@ -4,3 +4,7 @@
 
 -- Enable Nerd Font icons
 vim.g.have_nerd_font = true
+
+-- Use absolute line numbers instead of relative
+vim.opt.number = true
+vim.opt.relativenumber = false

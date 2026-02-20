@@ -7,6 +7,10 @@ return {
         asm_lsp = {
           mason = false, -- 不通过 mason 安装，使用系统的 asm-lsp
           filetypes = { "asm", "s", "S" },
+          handlers = {
+            -- 禁用诊断，因为 asm_lsp 不支持 DOS 16位汇编语法
+            ["textDocument/publishDiagnostics"] = function() end,
+          },
         },
         -- 配置 clangd 用于 C/C++ 文件
         clangd = {
