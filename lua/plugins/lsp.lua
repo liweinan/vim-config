@@ -15,6 +15,10 @@ return {
         -- 配置 clangd 用于 C/C++ 文件
         clangd = {
           mason = true, -- 通过 mason 自动安装
+          handlers = {
+            -- 禁用诊断
+            ["textDocument/publishDiagnostics"] = function() end,
+          },
         },
       },
     },
