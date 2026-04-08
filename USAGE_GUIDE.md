@@ -171,23 +171,28 @@ gK                     签名帮助 (Signature Help)
 
 ## 文件操作
 
-### 文件浏览器 (Neo-tree)
+### 文件浏览器 (Snacks Explorer)
 ```
-<leader>e              打开/关闭文件浏览器
-<leader>E              在当前文件位置打开文件浏览器
+<leader>e              打开/关闭文件浏览器（项目根目录）
+<leader>E              打开/关闭文件浏览器（当前工作目录）
 ```
 
-### 文件搜索和跳转 (Telescope)
+**说明：**
+- 当前为 LazyVim v8 默认 Explorer（Snacks）
+- 再按一次同一快捷键即可关闭（toggle）
+- 侧栏内常用键：`l` 打开、`h` 收起目录、`q` 关闭
+
+### 文件搜索和跳转 (Snacks Picker)
 ```
-<leader>ff             查找文件 (Find Files) - 模糊搜索文件名
-<leader>fg             全局搜索内容 (Grep) - 在文件内容中搜索
+<leader>ff             查找文件 (Files)
+<leader>fg             全局搜索内容 (Grep)
 <leader>fb             查找缓冲区 (Buffers)
-<leader>fr             最近文件 (Recent Files)
-<leader>fh             帮助标签 (Help Tags)
+<leader>fr             最近文件 (Recent)
+<leader>fh             帮助标签 (Help)
 <leader>/              在当前文件中搜索
 ```
 
-**Telescope 操作技巧：**
+**Snacks Picker 操作技巧：**
 - 输入文件名的一部分进行模糊匹配
 - `<C-j>/<C-k>` 或箭头键上下选择
 - `<CR>` 打开文件
@@ -330,6 +335,24 @@ q                      退出
 3. 确保文件类型正确：`:set filetype?`
 4. 对于 .s/.S 文件，应该显示 `filetype=asm`
 
+### E325: ATTENTION（swap 文件冲突）
+**现象：**
+- 报错类似：`Vim(buffer):E325: ATTENTION`
+- 常见于从 picker 跳转文件时触发
+
+**原因：**
+- 同一路径已被另一个 nvim 会话编辑，或存在异常退出留下的 swap 文件
+
+**处理步骤：**
+1. 确认是否有其他 nvim 正在编辑同一文件
+2. 用普通 `:edit <file>` 打开目标文件，按提示恢复/删除 swap
+3. 无并发编辑时，删除对应 `.swp/.swo/.swn` 残留文件
+4. 再次使用 `<leader>e` 或文件跳转
+
+**补充：**
+- 从插入模式触发 picker 跳转更容易把 E325 以 `vim.schedule` 回调错误形式显示
+- 先按 `Esc` 再确认跳转可减少该类异常表现
+
 ### 图标显示乱码
 1. 确保安装了 Nerd Font：
    ```bash
@@ -348,6 +371,14 @@ q                      退出
 :checkhealth           健康检查
 :messages              查看消息历史
 :LspLog                查看 LSP 日志
+```
+
+Neovim 日志文件（默认）：
+- `~/.local/state/nvim/log`
+
+可在终端实时查看：
+```bash
+tail -f ~/.local/state/nvim/log
 ```
 
 ---
@@ -425,4 +456,4 @@ q                      退出
 
 ---
 
-**最后更新**: 2026-02-17 (添加了符号跳转、文件跳转和详细的窗口分割命令)
+**最后更新**: 2026-04-08 (修正为 Snacks Explorer/Snacks Picker，并补充 E325 swap 冲突排查与日志路径)

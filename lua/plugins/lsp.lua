@@ -15,6 +15,10 @@ return {
         -- 配置 clangd 用于 C/C++ 文件
         clangd = {
           mason = true, -- 通过 mason 自动安装
+          on_attach = function(client, _)
+            -- 禁用 clangd semantic tokens，避免 inactive 代码被统一灰显
+            client.server_capabilities.semanticTokensProvider = nil
+          end,
           handlers = {
             -- 禁用诊断
             ["textDocument/publishDiagnostics"] = function() end,
