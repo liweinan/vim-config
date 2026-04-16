@@ -8,3 +8,8 @@ vim.g.have_nerd_font = true
 -- Use absolute line numbers instead of relative
 vim.opt.number = true
 vim.opt.relativenumber = false
+
+-- Soft wrap (display only; no inserted newlines)
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
