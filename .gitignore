@@ -26,3 +26,6 @@ data
 *.swp
 *.swo
 *~
+
+# OpenCode / Neovim log
+.nvimlog

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "opencode": {
+      "options": {
+        "apiKey": "{file:~/.config/opencode/zen-api-key}"
+      }
+    }
+  }
+}

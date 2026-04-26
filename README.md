@@ -78,6 +78,15 @@ git pull
 # :Lazy sync
 ```
 
+## AI 编程工具
+
+本仓库集成了 AI 编程工具配置：
+
+- **OpenCode** + DeepSeek V4 Pro（`opencode/opencode.json`）
+- **Claude Code** + DeepSeek V4 Pro（`~/.config/fish/conf.d/deepseek-claude.fish`）
+
+详见 **[DEEPSEEK_V4_SETUP.md](./DEEPSEEK_V4_SETUP.md)**。
+
 ## 主要插件
 
 - **aerial.nvim**: 代码大纲，使用 `<leader>a` 打开

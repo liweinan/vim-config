@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "deepseek/deepseek-v4-pro",
+  "small_model": "deepseek/deepseek-v4-flash",
+  "autoupdate": true,
+  "enabled_providers": ["deepseek"],
+  "model_params": {
+    "reasoning_effort": "max",
+    "thinking": {"type": "enabled"}
+  }
+}
